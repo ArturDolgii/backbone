@@ -5,14 +5,14 @@ body {
 
 div.table {
 	border: 1px solid #000;
-	height: 620px;
+	height: 520px;
 	width: 1260px;
 }
 
 div.number {
 	float: left;
 	width: 114px;
-	height: 50px;
+	height: 40px;
 	border: 1px solid #000;
 	padding: 5px;
 }
@@ -44,7 +44,7 @@ div.number:nth-child(91) {
 	left: 71px;
 	width: 48px;
 	height: 16px;
-	top: 23px;
+	top: 13px;
 }
 
 .answer > img {

@@ -8,6 +8,7 @@
 
 App.Models.Number = Backbone.Model.extend({
 	defaults: {
+	    title: "",
 		status: 1
 	}
 });
@@ -81,13 +82,19 @@ App.Views.Stat = Backbone.View.extend({
 	},
 
 	recountCollection: function() {
-		/*
-		var count = this.collection.toJSON().filter(function(item) {
+		var countCorrect = this.collection.toJSON().filter(function(item) {
 			return item.status === 1;
-		});
-		console.log(count);
-		this.model.set("correct", 1);
-		*/
+		}).length;
+		var countIncorrect = this.collection.toJSON().filter(function(item) {
+			return item.status === 2;
+		}).length;
+		var countSeflCorrected = this.collection.toJSON().filter(function(item) {
+			return item.status === 3;
+		}).length;
+
+		this.model.set("correct", countCorrect);
+		this.model.set("incorrect", countIncorrect);
+		this.model.set("selfCorrected", countSeflCorrected);
 	}
 });
 
