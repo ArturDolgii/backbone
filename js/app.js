@@ -26,6 +26,7 @@ App.Views.Number = Backbone.View.extend({
 
 	initialize: function() {
 		this.model.on("change:status", this.render, this);
+        this.$el.on("click", ".answer > img", $.proxy(this.changeStatus, this));
 	},
 
 	template: _.template( $("#item-template").html() ),
@@ -34,10 +35,6 @@ App.Views.Number = Backbone.View.extend({
 		this.$el.html( this.template( this.model.toJSON() ) );
 
 		return this;
-	},
-
-	events: {
-		"click .answer > img": "changeStatus"
 	},
 
 	changeStatus: function(e) {
